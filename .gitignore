@@ -1,0 +1,35 @@
+# Dependencies
+node_modules/
+
+# Build output
+dist/
+.vite/
+
+# Vite cache
+.vite-cache/
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+
+# Editor directories and files
+.idea/
+.vscode/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+npm-debug.log*
+
+# Lock files (keep package-lock.json, ignore others)
+yarn.lock
+pnpm-lock.yaml

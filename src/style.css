@@ -1,0 +1,172 @@
+/* ── Tailwind layers ─────────────────────────────────────── */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ── Base resets ─────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; }
+* { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+body { font-family: 'Inter', sans-serif; background: #ffffff; color: #0A0A0A; margin: 0; }
+
+/* ── Hero background (solid fallback → image overlay) ─────── */
+.hero-bg {
+  background-color: #171717;
+  background-image:
+    linear-gradient(
+      108deg,
+      rgba(10,10,10,0.97) 0%,
+      rgba(10,10,10,0.88) 42%,
+      rgba(10,10,10,0.52) 100%
+    ),
+    url('https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?auto=format&fit=crop&w=1920&q=80');
+  background-size: cover;
+  background-position: center 42%;
+}
+
+/* ── Section accent rule (44 × 3px red bar) ───────────────── */
+.s-rule {
+  display: block;
+  width: 44px;
+  height: 3px;
+  background: #CC0000;
+  margin-bottom: 18px;
+}
+
+/* ── Buttons ──────────────────────────────────────────────── */
+.btn-red {
+  background-color: #CC0000;
+  transition: background-color .18s ease, transform .1s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+.btn-red:hover {
+  background-color: #A30000;
+  transform: translateY(-1px);
+}
+
+.btn-ghost {
+  border: 2px solid rgba(255, 255, 255, .32);
+  transition: border-color .18s ease, background-color .18s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+.btn-ghost:hover {
+  border-color: rgba(255, 255, 255, .82);
+  background-color: rgba(255, 255, 255, .06);
+}
+
+.btn-outline {
+  border: 2px solid #262626;
+  transition: border-color .18s ease, color .18s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+.btn-outline:hover {
+  border-color: #CC0000;
+  color: #CC0000;
+}
+
+/* ── Service cards ────────────────────────────────────────── */
+.svc-card {
+  transition: transform .24s ease, box-shadow .24s ease;
+}
+.svc-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 44px rgba(0, 0, 0, .22);
+}
+
+.svc-top {
+  transition: width .3s ease;
+}
+.svc-card:hover .svc-top {
+  width: 100%;
+}
+
+.arrow-cta {
+  transition: gap .2s ease;
+}
+.svc-card:hover .arrow-cta {
+  gap: 10px;
+}
+
+/* ── Industry cards ───────────────────────────────────────── */
+.ind-card {
+  transition: transform .22s ease, box-shadow .22s ease;
+}
+.ind-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 14px 32px rgba(0, 0, 0, .09);
+}
+
+/* ── Mobile nav slide ─────────────────────────────────────── */
+#mob-nav {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height .32s ease;
+}
+#mob-nav.open {
+  max-height: 420px;
+}
+
+/* ── Why BMD visual (CSS-only, zero image dependency) ─────── */
+.why-vis {
+  background: linear-gradient(140deg, #1c1c1c 0%, #0d0d0d 100%);
+  position: relative;
+  overflow: hidden;
+}
+.why-vis::before {
+  content: 'BMD';
+  position: absolute;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 900;
+  font-size: 16rem;
+  color: rgba(255, 255, 255, .025);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  white-space: nowrap;
+  pointer-events: none;
+  letter-spacing: -.02em;
+  user-select: none;
+}
+.why-vis::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: repeating-linear-gradient(
+    -45deg,
+    rgba(255, 255, 255, .022) 0,
+    rgba(255, 255, 255, .022) 1px,
+    transparent 0,
+    transparent 50%
+  );
+  background-size: 14px 14px;
+}
+
+/* ── CTA dot pattern ──────────────────────────────────────── */
+.dot-bg {
+  background-image: radial-gradient(rgba(255, 255, 255, .055) 1px, transparent 1px);
+  background-size: 22px 22px;
+}
+
+/* ── Hero trust-strip stat numbers ───────────────────────── */
+.stat-num {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 900;
+  color: #CC0000;
+  font-size: 2.4rem;
+  line-height: 1;
+  letter-spacing: -.01em;
+}
+
+/* ── Scroll cue animation ─────────────────────────────────── */
+@keyframes nudge {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(5px); }
+}
+.scroll-cue {
+  animation: nudge 2.4s ease-in-out infinite;
+}
